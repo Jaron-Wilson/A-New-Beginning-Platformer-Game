@@ -16,6 +16,9 @@ public class GameWindow {
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        add the panel into frame
         jFrame.add(gamePanel);
+
+//        set Location to middle
+        jFrame.setLocationRelativeTo(null);
 //        SetVisible HAS TO BE LAST!
         jFrame.setVisible(true);
     }
