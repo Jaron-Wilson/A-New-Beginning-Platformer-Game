@@ -9,9 +9,6 @@ public class GameWindow {
         System.out.println("Game Window Starting...");
         jFrame = new JFrame();
 
-//        Make Window
-        jFrame.setSize(400,400);
-
 
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        add the panel into frame
@@ -19,6 +16,9 @@ public class GameWindow {
 
 //        set Location to middle
         jFrame.setLocationRelativeTo(null);
+
+        jFrame.pack();
+
 //        SetVisible HAS TO BE LAST!
         jFrame.setVisible(true);
     }
