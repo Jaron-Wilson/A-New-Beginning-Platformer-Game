@@ -95,14 +95,17 @@ public class GamePanel extends JPanel {
             playerAction = IDLE;
     }
 
-    protected void paintComponent(Graphics g) {
-//        calling its own Classes paint component
-        super.paintComponent(g);
-
+    public void updateGame() {
 //        ANIMATIONS
         updateAnimationTick();
         setAnimation();
         updatePosition();
+    }
+
+    protected void paintComponent(Graphics g) {
+//        calling super's Classes paint component
+        super.paintComponent(g);
+
 
         g.drawImage(animations[playerAction][animationIndex], (int) xDelta, (int) yDelta, 256,160, null);
 
@@ -119,6 +122,5 @@ public class GamePanel extends JPanel {
             }
         }
     }
-
 
 }
