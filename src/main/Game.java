@@ -1,9 +1,13 @@
 package main;
 
 import entities.Player;
+import gamestates.Gamestate;
+import gamestates.Playing;
 import levels.LevelManager;
 
 import java.awt.*;
+
+import static gamestates.Gamestate.MENU;
 
 public class Game implements Runnable{
 
@@ -33,9 +37,6 @@ public class Game implements Runnable{
         gameWindow = new GameWindow(gamePanel);
 //        gets input focus
         gamePanel.requestFocus();
-
-        startGameLoop();
-
     }
 
     private void initClasses() {
@@ -44,19 +45,38 @@ public class Game implements Runnable{
         player.loadLvlData(levelManager.getCurrentLevel().getLvlData());
     }
 
-    private void startGameLoop() {
+    public void startGameLoop() {
         gameThread = new Thread(this);
         gameThread.start();
     }
 
     public void update(){
-        player.update();
-        levelManager.update();
+
+        switch (Gamestate.state) {
+            case MENU -> {
+
+            }
+            case PLAYING -> {
+                player.update();
+                levelManager.update();
+            }
+            case default -> {
+            }
+        }
     }
 
     public void render(Graphics g) {
-        levelManager.draw(g);
-        player.render(g);
+        switch (Gamestate.state) {
+            case MENU -> {
+
+            }
+            case PLAYING -> {
+                levelManager.draw(g);
+                player.render(g);
+            }
+            case default -> {
+            }
+        }
     }
 
     @Override
