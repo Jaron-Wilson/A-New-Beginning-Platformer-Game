@@ -1,15 +1,18 @@
 package gamestates;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 
 public interface Statemethods {
 
     public void update();
     public void draw(Graphics g);
-    public void mouseClicked();
-    public void mousePressed();
-    public void mouseReleased();
-    public void mouseMoved();
-//    TODO:7:30 https://www.youtube.com/watch?v=2mhDRjnv4WI
+    public void mouseClicked(MouseEvent e);
+    public void mousePressed(MouseEvent e);
+    public void mouseReleased(MouseEvent e);
+    public void mouseMoved(MouseEvent e);
+    public void keyPressed(KeyEvent e);
+    public void keyReleased(KeyEvent e);
 
 }
