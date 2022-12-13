@@ -13,6 +13,11 @@ public class Constants {
 
         }
 
+        public static class PauseButtons {
+            public static final int SOUND_SIZE_DEFAULT = 42;
+            public static final int SOUND_SIZE = (int) (SOUND_SIZE_DEFAULT * Game.SCALE);
+        }
+
     }
 
     public static class Directions{
