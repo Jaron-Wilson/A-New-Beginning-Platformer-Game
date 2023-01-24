@@ -123,6 +123,11 @@ public class Playing extends State implements Statemethods {
     }
 
 
+    public void mouseDragged(MouseEvent e) {
+        if (paused)
+            pauseOverlay.mouseDragged(e);
+    }
+
     public void windowFocusLost() {
         player.resetDirBooleans();
     }
