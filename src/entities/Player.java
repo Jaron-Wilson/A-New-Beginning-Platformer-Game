@@ -12,7 +12,7 @@ import static utilz.HelpMethods.*;
 public class Player extends Entity{
 
     private BufferedImage[][] animations;
-    private int animationTick, animationIndex, animationSpeed = 15;
+    private int animationTick, animationIndex, animationSpeed = 25;
     private int playerAction = IDLE;
     private boolean moving = false, attacking = false;
     private boolean left, up, right, down, jump;
@@ -42,8 +42,8 @@ public class Player extends Entity{
         setAnimation();
     }
 
-    public void render(Graphics g) {
-        g.drawImage(animations[playerAction][animationIndex], (int) (hitbox.x - xDrawOffset), (int) (hitbox.y - yDrawOffset), width,height, null);
+    public void render(Graphics g, int lvlOffset) {
+        g.drawImage(animations[playerAction][animationIndex], (int) (hitbox.x - xDrawOffset) - lvlOffset, (int) (hitbox.y - yDrawOffset), width, height, null);
 //        drawHitbox(g);
     }
 
@@ -89,8 +89,11 @@ public class Player extends Entity{
         moving = false;
         if (jump)
             jump();
-        if (!left && !right && !inAir)
-            return;
+//        if (!left && !right && !inAir)
+//            return;
+        if (!inAir)
+            if ((!left && !right) || (right && left))
+                return;
 
         float xSpeed = 0;
 
