@@ -16,8 +16,9 @@ public class GameWindow {
 //        add the panel into frame
         jFrame.add(gamePanel);
 //        set Location to middle
-        jFrame.setLocationRelativeTo(null);
+
         jFrame.pack();
+        jFrame.setLocationRelativeTo(null);
 //        SetVisible HAS TO BE LAST!
         jFrame.setVisible(true);
         jFrame.addWindowFocusListener(new WindowFocusListener() {
